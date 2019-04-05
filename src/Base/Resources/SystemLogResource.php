@@ -62,7 +62,7 @@ class SystemLogResource extends AbstractResource
             $column->add('id', 'ID');
             if (config('laradium-system.columns.type')) {
                 $column->add('type', 'Type')->modify(function (SystemLog $item) {
-                    return view('laradium::admin.system-logs.tds.type', [
+                    return view('laradium-system::admin.system-logs.tds.type', [
                         'item' => $item
                     ])->render();
                 });
@@ -95,7 +95,7 @@ class SystemLogResource extends AbstractResource
                 $column->add($key, $title);
             }
             $column->add('action', 'Actions')->modify(function (SystemLog $item) {
-                return view('laradium::admin.system-logs.tds.actions', [
+                return view('laradium-system::admin.system-logs.tds.actions', [
                     'item'     => $item,
                     'resource' => $this
                 ])->render();
@@ -115,7 +115,7 @@ class SystemLogResource extends AbstractResource
         $logFiles = array_diff(scandir(storage_path('logs'), SCANDIR_SORT_DESCENDING), [
             '..', '.', '.gitignore', '.gitkeep'
         ]);
-        return view('laradium::admin.system-logs.index', [
+        return view('laradium-system::admin.system-logs.index', [
             'table'      => $this->table()->resource($this)->model($this->getModel()),
             'resource'   => $this,
             'layout'     => $this->layout,
