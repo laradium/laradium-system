@@ -17,7 +17,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Laradium\\Laradium\\Providers\\LaradiumSystemServiceProvider"
+        "Laradium\\Laradium\\System\\Providers\\LaradiumSystemServiceProvider"
       ]
     }
   }
